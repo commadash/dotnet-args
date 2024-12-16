@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "shell",
+      "command": "dotnet",
+      "label": "build generator",
+      "group": "build",
+      "args": [
+        "build",
+        "${workspaceFolder}/args.generator/args.generator.csproj"
+      ]
+    },
+    {
+      "type": "shell",
+      "command": "${workspaceFolder}/args.generator/bin/Debug/net8.0/args.generator",
+      "label": "generate code",
+      "group": "build",
+      "dependsOn": "build generator"
+    },
+    {
+      "type": "shell",
+      "command": "dotnet",
+      "label": "build console",
+      "group": "build",
+      "args": ["build", "${workspaceFolder}/args.console/args.console.csproj"],
+      "dependsOn": "generate code"
+    }
+  ]
+}

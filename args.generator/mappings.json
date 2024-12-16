@@ -1,0 +1,5 @@
+{
+  "Parameters": { "server": "Server", "path": "Path" },
+  "Switches": { "p": "Parallel", "l": "List", "f": "Force" },
+  "Filepath": "args.console"
+}
